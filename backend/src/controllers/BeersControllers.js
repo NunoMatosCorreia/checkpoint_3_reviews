@@ -1,8 +1,8 @@
 const models = require("../models");
 
-class BeersController {
+class BeersControllers {
   static getAllBeers = (req, res) => {
-    models
+    models.beers
       .findAll()
       .then(([rows]) => {
         res.send(rows);
@@ -22,9 +22,9 @@ class BeersController {
       .update(item)
       .then(([result]) => {
         if (result.affectedRows === 0) {
-          res.status(404).send("Can't find Beer with id: ", item.id);
+          res.status(404).send(`Can't find Beer with ${item.id}`);
         } else {
-          res.status(204).send("Update Name of Beer with id: ", item.id);
+          res.status(204).send(`Update Name of Beer with ${item.id}`);
         }
       })
       .catch((err) => {
@@ -34,4 +34,4 @@ class BeersController {
   };
 }
 
-module.exports = BeersController;
+module.exports = BeersControllers;

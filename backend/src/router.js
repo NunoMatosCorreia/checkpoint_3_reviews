@@ -2,9 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
-const { BeersController } = require("./controllers");
+const { BeersControllers } = require("./controllers");
 
-router.get("/beers", BeersController.getAllBeers);
-router.post("/beers/:id", BeersController.updateBeers);
+router.get("/beers", BeersControllers.getAllBeers);
+router.post("/beers/:id", BeersControllers.updateBeers);
 
 module.exports = router;

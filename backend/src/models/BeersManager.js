@@ -5,6 +5,10 @@ class BeersManager extends AbstractManager {
     super({ table: "beers" });
   }
 
+  findAll() {
+    return this.connection.query(`select * from  ${this.table}`);
+  }
+
   update(item) {
     const { name, id } = item;
     return this.connection.query(
