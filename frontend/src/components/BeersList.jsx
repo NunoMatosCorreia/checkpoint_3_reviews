@@ -37,6 +37,7 @@ function BeersList() {
               .filter((beer) =>
                 beer.name.toLowerCase().includes(beersSearchValue)
               )
+              // eslint-disable-next-line react/jsx-props-no-spreading
               .map((beer) => <Beer {...beer} />)
           : null}
       </div>
