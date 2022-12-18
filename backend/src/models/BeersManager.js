@@ -5,16 +5,16 @@ class BeersManager extends AbstractManager {
     super({ table: "beers" });
   }
 
-  findAll() {
-    return this.connection.query(`select * from  ${this.table}`);
-  }
-
   update(item) {
     const { name, id } = item;
     return this.connection.query(
-      `UPDATE ${this.table} SET name = ? WHERE id = ?`,
+      `update ${this.table} set name = ? where id = ?`,
       [name, id]
     );
+  }
+
+  createBeer(body) {
+    return this.connection.query(`INSERT INTO ${this.table} SET ?`, [body]);
   }
 }
 
